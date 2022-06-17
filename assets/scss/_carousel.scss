@@ -1,0 +1,634 @@
+@import 'variables';
+.slides {
+  position: relative;
+  min-height: 600px;
+  width: 40%;
+  border: 1px solid #ccc;
+  padding: 0px;
+  margin: 100px auto;
+  background-color: #ffffff;
+  box-shadow: 10px 10px 5px -2px rgba(0, 0, 0, 0.5);
+  @include lg {
+    width: 80%;
+    box-shadow: none;
+  }
+}
+.container {
+  max-width: 100%;
+  padding-top: 20px;
+  @include md-sm {
+    text-align: center;
+    padding-top: 40px;
+  }
+  @include sm {
+    text-align: center;
+    padding-top: 95px;
+  }
+}
+.slide {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 1s;
+}
+.active {
+  opacity: 1;
+  z-index: 2;
+}
+.slide {
+  padding: 40px;
+  box-sizing: border-box;
+  background: #333;
+  font-size: 1.2em;
+  @include md {
+    font-size: 1em;
+  }
+}
+.item-slide {
+  margin-top: 120px;
+  @include sm {
+    margin-top: 50px;
+  }
+}
+.slide:nth-of-type(1) {
+  background: url(../img/apple_iphone_12_64_gb_krasnyy.jpeg);
+  background-position: top;
+  background-size: auto;
+  background-repeat: no-repeat;
+  margin-top: 20px;
+}
+
+.slide:nth-of-type(2) {
+  background: url(../img/apple_iphone_11_128_gb_green.jpeg);
+  background-position: top;
+  background-size: auto;
+  background-repeat: no-repeat;
+  margin-top: 20px;
+  @include md-xs {
+    background-position: -500px;
+  }
+  @include xs {
+    background-position: -600px;
+  }
+}
+.slide:nth-of-type(3) {
+  background: url(../img/apple_iphone_12_pro_max_128_gb_serebristyy.jpeg);
+  background-position: top;
+  background-size: auto;
+  background-repeat: no-repeat;
+  margin-top: 20px;
+  @include md-xs {
+    background-position: -500px;
+  }
+  @include xs {
+    background-position: -600px;
+  }
+}
+.slide:nth-of-type(4) {
+  background: url(../img/apple_iphone_11_128_gb_krasnyy.jpeg);
+  background-position: top;
+  background-size: auto;
+  background-repeat: no-repeat;
+  margin-top: 20px;
+}
+.slide:nth-of-type(5) {
+  background: url(../img/apple_iphone_11_128_gb_chernyy.jpeg);
+  background-position: top;
+  background-size: auto;
+  background-repeat: no-repeat;
+  margin-top: 20px;
+
+  @include md-xs {
+    background-position: -500px;
+  }
+  @include xs {
+    background-position: -600px;
+  }
+}
+.slide:nth-of-type(6) {
+  background: url(../img/apple_iphone_12_64_gb_belyy.jpeg);
+  background-position: top;
+  background-size: auto;
+  background-repeat: no-repeat;
+  margin-top: 20px;
+  @include md-xs {
+    background-position: -500px;
+  }
+  @include xs {
+    background-position: -600px;
+  }
+}
+.indicators {
+  position: absolute;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 1em;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 2;
+  min-height: 600px;
+  width: 75%;
+  align-items: end;
+}
+.item-slede__option {
+  position: absolute;
+  z-index: 5;
+  height: 50px;
+  margin-bottom: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  bottom: 80px;
+  left: 0;
+  color: black;
+  cursor: pointer;
+  transition: 0.5s;
+  a {
+    text-decoration: none;
+  }
+  .item-slide__more {
+    padding-right: 50px;
+  }
+  .item-slide__cart {
+    padding-left: 50px;
+  }
+}
+.controls {
+  position: absolute;
+  z-index: 3;
+  margin-bottom: 35px;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  bottom: 0;
+  text-align: center;
+  color: black;
+  cursor: pointer;
+  transition: 0.5s;
+  .control-prev {
+    padding-right: 80px;
+    padding-left: 20px;
+  }
+  .control-next {
+    padding-left: 80px;
+    padding-right: 20px;
+  }
+  &:hover,
+  &:focus {
+    color: rgba(14, 196, 84, 0.5);
+  }
+}
+.prev {
+  top: 50%;
+  left: -50px;
+  color: black;
+  padding-left: 10px;
+  font-size: 3rem;
+}
+.next {
+  top: 50%;
+  right: -50px;
+  color: black;
+  padding-right: 10px;
+  font-size: 3rem;
+}
+.pause-play {
+  top: 50%;
+  left: 45%;
+  transition: 3s;
+  color: transparent;
+  font-size: 10vh;
+  @include sm {
+    font-size: 5vh;
+  }
+}
+.indicator {
+  width: 35px;
+  height: 5px;
+  background-color: rgba(104, 8, 239, 0.2);
+  cursor: pointer;
+  &.active {
+    background-color: rgba(14, 196, 84, 0.5);
+  }
+}
+section {
+  margin-top: 5%;
+}
+// header
+.fa-apple {
+  color: #fff;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+input[id='menuExtend'] {
+  display: none;
+}
+
+header {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 9;
+  background-color: rgba(255, 0, 0, 0.1);
+}
+header .row {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 2vw;
+}
+header div,
+header nav {
+  display: flex;
+}
+header .col {
+  align-items: center;
+}
+header a {
+  text-decoration: none;
+}
+header #menubar {
+  height: 4vw;
+  min-height: 60px;
+  justify-content: space-between;
+}
+header #menubar #logo {
+  color: #fff;
+  font-size: 1.8em;
+  padding-left: 20px;
+}
+header #menubar label[for='menuExtend'] {
+  width: 12.5vw;
+  max-width: 60px;
+  min-width: 45px;
+  height: 100%;
+  position: relative;
+}
+header #menubar label[for='menuExtend'] span {
+  font-size: 0;
+  width: 60%;
+  height: 6%;
+  border-radius: 10px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+header #menubar label[for='menuExtend'] span:before,
+header #menubar label[for='menuExtend'] span:after {
+  content: '';
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  transition: transform 0.2s ease-out, top 0.2s 0.2s ease-out;
+}
+header #menubar label[for='menuExtend'] span:before {
+  top: -300%;
+}
+header #menubar label[for='menuExtend'] span:after {
+  top: 300%;
+}
+header #navbar nav a {
+  color: #fff;
+  font-size: 1.4rem;
+  transition: 0.2s ease-out;
+}
+header #navbar nav a:hover,
+header #navbar nav a.on {
+  color: #c4caff;
+}
+header #navbar #links a {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  transition: 0.2s ease-out;
+}
+header #navbar #links a:hover {
+  border-color: transparent;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+header #navbar #links a img {
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+header #navbar #links a + a {
+  margin-left: 1rem;
+}
+
+@media (min-width: 767px) {
+  header > div {
+    align-items: center;
+    justify-content: space-between;
+  }
+  header label[for='menuExtend'] {
+    display: none;
+  }
+  header #navbar nav a {
+    margin-left: 1em;
+  }
+  header #navbar #links {
+    margin-left: 2.5em;
+  }
+}
+@media (max-width: 767.98px) {
+  html {
+    font-size: 4vw;
+  }
+
+  header > div {
+    flex-direction: column;
+  }
+  header #navbar {
+    flex: 1;
+    flex-direction: column;
+    padding: 20vw 10vw;
+    display: none;
+  }
+  header #navbar > * {
+    width: 100%;
+    justify-content: center;
+  }
+  header #navbar nav a {
+    margin-bottom: 1em;
+  }
+  header #navbar #links a + a {
+    margin-left: 5vw;
+  }
+
+  input[id='menuExtend']:checked + header {
+    height: 100%;
+    max-height: initial;
+    background: linear-gradient(
+      to right,
+      #b1939d 0%,
+      #a27f9d 25%,
+      #797ab0 50%,
+      #607fb6 75%,
+      #5787af 100%
+    );
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+  input[id='menuExtend']:checked + header #menubar #logo {
+    opacity: 0;
+    pointer-events: none;
+    transition: none;
+  }
+  input[id='menuExtend']:checked + header #menubar label[for='menuExtend'] span {
+    background-color: transparent;
+  }
+  input[id='menuExtend']:checked + header #menubar label[for='menuExtend'] span:before,
+  input[id='menuExtend']:checked + header #menubar label[for='menuExtend'] span:after {
+    top: 0;
+    transition: top 0.3s ease-out, transform 0.3s 0.3s ease-out;
+  }
+  input[id='menuExtend']:checked + header #menubar label[for='menuExtend'] span:before {
+    transform: rotate(45deg);
+  }
+  input[id='menuExtend']:checked + header #menubar label[for='menuExtend'] span:after {
+    transform: rotate(-45deg);
+  }
+  input[id='menuExtend']:checked + header #navbar {
+    display: flex;
+  }
+  input[id='menuExtend']:checked + header #navbar nav {
+    font-size: 1.875rem;
+    flex-direction: column;
+    margin-bottom: 5vh;
+  }
+}
+//footer
+#footer {
+  height: 2px;
+  clear: both;
+}
+
+.footer-distributed {
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  padding-left: 40px;
+}
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right {
+  display: inline-block;
+  vertical-align: top;
+}
+
+/* Footer left */
+
+.footer-distributed .footer-left {
+  width: 40%;
+}
+
+/* Footer links */
+
+.footer-distributed .footer-links {
+  color: #ffffff;
+  margin: 20px 0 12px;
+  padding-top: 50px;
+}
+
+.footer-distributed .footer-links a {
+  display: inline-block;
+  line-height: 1.8;
+  font-weight: 400;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Footer Center */
+
+.footer-distributed .footer-center {
+  width: 35%;
+  padding-top: 50px;
+}
+
+.footer-distributed .footer-center i {
+  background-color: #33383b;
+  color: #ffffff;
+  font-size: 20px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  margin: 10px 15px;
+  vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope {
+  font-size: 17px;
+  line-height: 38px;
+}
+
+.footer-distributed .footer-center p {
+  display: inline-block;
+  color: #ffffff;
+  font-weight: 400;
+  vertical-align: middle;
+  margin: 0;
+}
+
+.footer-distributed .footer-center p span {
+  display: block;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 2;
+}
+
+.footer-distributed .footer-center p a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-distributed .footer-links a:before {
+  content: '|';
+  font-weight: 300;
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-right: 5px;
+}
+
+.footer-distributed .footer-links .link-1:before {
+  content: none;
+}
+
+/* Footer Right */
+
+.footer-distributed .footer-right {
+  width: 20%;
+  padding-top: 50px;
+}
+
+.footer-distributed .footer-company-about {
+  line-height: 20px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: normal;
+  margin: 0;
+}
+
+.footer-distributed .footer-company-about span {
+  display: block;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons {
+  margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  background-color: #33383b;
+  border-radius: 2px;
+
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  line-height: 35px;
+
+  margin-right: 3px;
+  margin-bottom: 5px;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 880px) {
+  .footer-distributed {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .footer-distributed .footer-left {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+  .footer-distributed .footer-center {
+    width: 45%;
+    padding-top: 0px;
+  }
+
+  .footer-distributed .footer-right {
+    width: 50%;
+    padding-top: 20px;
+  }
+}
+@media (max-width: 660px) {
+  .footer-distributed .footer-center {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .footer-center__location {
+    width: 100%;
+  }
+  .footer-center__phone {
+    width: 100%;
+  }
+  .footer-center__mail {
+    width: 100%;
+  }
+  .footer-distributed .footer-right {
+    width: 100%;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (max-width: 360px) {
+}
+.cf:after {
+  clear: both;
+}
+#footer-copyright {
+  position: absolute;
+  left: 0;
+  margin-top: 20px;
+  width: 100%;
+  background: #fff;
+}
+#footer-copyright span {
+  display: table;
+  color: #999;
+  text-align: center;
+  font-size: 20px;
+  line-height: 60px;
+  margin: auto;
+  z-index: 99;
+}

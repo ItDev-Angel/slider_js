@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+  font-family: Open Sans;
+}
+
+body {
+  font: 300 16px/1.2 calibri;
+  color: #222;
+  text-align: center;
+  background: linear-gradient(
+    to right,
+    #b1939d 0%,
+    #a27f9d 25%,
+    #797ab0 50%,
+    #607fb6 75%,
+    #5787af 100%
+  );
+}
