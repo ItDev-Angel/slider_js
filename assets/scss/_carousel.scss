@@ -1,11 +1,11 @@
 @import 'variables';
 .slides {
   position: relative;
-  min-height: 600px;
+  min-height: 500px;
   width: 40%;
   border: 1px solid #ccc;
   padding: 0px;
-  margin: 100px auto;
+  margin: 60px auto;
   background-color: #ffffff;
   box-shadow: 10px 10px 5px -2px rgba(0, 0, 0, 0.5);
   @include lg {
@@ -16,111 +16,39 @@
 .container {
   max-width: 100%;
   padding-top: 20px;
-  @include md-sm {
-    text-align: center;
-    padding-top: 40px;
-  }
-  @include sm {
-    text-align: center;
-    padding-top: 95px;
-  }
 }
 .slide {
   position: absolute;
   left: 0px;
   top: 0px;
   width: 100%;
-  height: 100%;
   opacity: 0;
   z-index: 1;
   transition: opacity 1s;
+  font-size: 1.2em;
 }
 .active {
   opacity: 1;
   z-index: 2;
 }
-.slide {
-  padding: 40px;
-  box-sizing: border-box;
-  background: #333;
-  font-size: 1.2em;
-  @include md {
+.item-slide__img {
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+.item-slide__description {
+  @include sm {
     font-size: 1em;
   }
-}
-.item-slide {
-  margin-top: 120px;
-  @include sm {
-    margin-top: 50px;
-  }
-}
-.slide:nth-of-type(1) {
-  background: url(../img/apple_iphone_12_64_gb_krasnyy.jpeg);
-  background-position: top;
-  background-size: auto;
-  background-repeat: no-repeat;
-  margin-top: 20px;
-}
-
-.slide:nth-of-type(2) {
-  background: url(../img/apple_iphone_11_128_gb_green.jpeg);
-  background-position: top;
-  background-size: auto;
-  background-repeat: no-repeat;
-  margin-top: 20px;
-  @include md-xs {
-    background-position: -500px;
-  }
   @include xs {
-    background-position: -600px;
+    font-size: 1.3em;
+    padding: 0 25px 0 25px;
   }
 }
-.slide:nth-of-type(3) {
-  background: url(../img/apple_iphone_12_pro_max_128_gb_serebristyy.jpeg);
-  background-position: top;
-  background-size: auto;
-  background-repeat: no-repeat;
+.item-slide__option {
   margin-top: 20px;
-  @include md-xs {
-    background-position: -500px;
-  }
-  @include xs {
-    background-position: -600px;
-  }
-}
-.slide:nth-of-type(4) {
-  background: url(../img/apple_iphone_11_128_gb_krasnyy.jpeg);
-  background-position: top;
-  background-size: auto;
-  background-repeat: no-repeat;
-  margin-top: 20px;
-}
-.slide:nth-of-type(5) {
-  background: url(../img/apple_iphone_11_128_gb_chernyy.jpeg);
-  background-position: top;
-  background-size: auto;
-  background-repeat: no-repeat;
-  margin-top: 20px;
-
-  @include md-xs {
-    background-position: -500px;
-  }
-  @include xs {
-    background-position: -600px;
-  }
-}
-.slide:nth-of-type(6) {
-  background: url(../img/apple_iphone_12_64_gb_belyy.jpeg);
-  background-position: top;
-  background-size: auto;
-  background-repeat: no-repeat;
-  margin-top: 20px;
-  @include md-xs {
-    background-position: -500px;
-  }
-  @include xs {
-    background-position: -600px;
-  }
+  display: flex;
+  justify-content: space-around;
 }
 .indicators {
   position: absolute;
@@ -136,34 +64,11 @@
   width: 75%;
   align-items: end;
 }
-.item-slede__option {
-  position: absolute;
-  z-index: 5;
-  height: 50px;
-  margin-bottom: 50px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  bottom: 80px;
-  left: 0;
-  color: black;
-  cursor: pointer;
-  transition: 0.5s;
-  a {
-    text-decoration: none;
-  }
-  .item-slide__more {
-    padding-right: 50px;
-  }
-  .item-slide__cart {
-    padding-left: 50px;
-  }
-}
+
 .controls {
   position: absolute;
   z-index: 3;
-  margin-bottom: 35px;
+  margin-bottom: 50px;
   height: 40px;
   width: 100%;
   display: flex;
@@ -190,25 +95,20 @@
   top: 50%;
   left: -50px;
   color: black;
-  padding-left: 10px;
-  font-size: 3rem;
+  padding-left: 50px;
+  font-size: 2.8rem;
 }
 .next {
   top: 50%;
   right: -50px;
   color: black;
-  padding-right: 10px;
-  font-size: 3rem;
+  padding-right: 50px;
+  font-size: 2.8rem;
 }
 .pause-play {
   top: 50%;
   left: 45%;
-  transition: 3s;
-  color: transparent;
-  font-size: 10vh;
-  @include sm {
-    font-size: 5vh;
-  }
+  font-size: 2.5rem;
 }
 .indicator {
   width: 35px;
@@ -218,9 +118,6 @@
   &.active {
     background-color: rgba(14, 196, 84, 0.5);
   }
-}
-section {
-  margin-top: 5%;
 }
 // header
 .fa-apple {
@@ -354,10 +251,6 @@ header #navbar #links a + a {
   }
 }
 @media (max-width: 767.98px) {
-  html {
-    font-size: 4vw;
-  }
-
   header > div {
     flex-direction: column;
   }
@@ -422,56 +315,43 @@ header #navbar #links a + a {
   }
 }
 //footer
-#footer {
+.footer-content {
   height: 2px;
   clear: both;
+  display: flex;
+  justify-content: space-around;
 }
 
-.footer-distributed {
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+.footer {
+  box-shadow: 0 1px 1px 0 rgba(255, 255, 255, 0.5);
   box-sizing: border-box;
   width: 100%;
-  text-align: left;
-  padding-left: 40px;
+  display: flex;
 }
 
-.footer-distributed .footer-left,
-.footer-distributed .footer-center,
-.footer-distributed .footer-right {
-  display: inline-block;
-  vertical-align: top;
+.footer-left,
+.footer-center,
+.footer-right {
+  width: 100%;
+  color: #ffffff;
+  padding: 20px;
 }
-
 /* Footer left */
 
-.footer-distributed .footer-left {
-  width: 40%;
-}
-
-/* Footer links */
-
-.footer-distributed .footer-links {
-  color: #ffffff;
-  margin: 20px 0 12px;
-  padding-top: 50px;
-}
-
-.footer-distributed .footer-links a {
-  display: inline-block;
+.footer-links a {
   line-height: 1.8;
-  font-weight: 400;
   text-decoration: none;
   color: inherit;
 }
 
 /* Footer Center */
-
-.footer-distributed .footer-center {
-  width: 35%;
-  padding-top: 50px;
+.footer-center {
+  text-align: left;
+  &__location {
+    margin-top: 10px;
+  }
 }
-
-.footer-distributed .footer-center i {
+.footer-center i {
   background-color: #33383b;
   color: #ffffff;
   font-size: 20px;
@@ -484,32 +364,31 @@ header #navbar #links a + a {
   vertical-align: middle;
 }
 
-.footer-distributed .footer-center i.fa-envelope {
+.footer-center i.fa-envelope {
   font-size: 17px;
   line-height: 38px;
 }
 
-.footer-distributed .footer-center p {
+.footer-center p {
   display: inline-block;
   color: #ffffff;
-  font-weight: 400;
   vertical-align: middle;
   margin: 0;
 }
 
-.footer-distributed .footer-center p span {
+.footer-center p span {
   display: block;
   font-weight: normal;
   font-size: 14px;
   line-height: 2;
 }
 
-.footer-distributed .footer-center p a {
+.footer-center p a {
   color: white;
   text-decoration: none;
 }
 
-.footer-distributed .footer-links a:before {
+.footer-links a:before {
   content: '|';
   font-weight: 300;
   font-size: 20px;
@@ -519,108 +398,87 @@ header #navbar #links a + a {
   padding-right: 5px;
 }
 
-.footer-distributed .footer-links .link-1:before {
+.footer-links .link-1:before {
   content: none;
 }
 
 /* Footer Right */
 
-.footer-distributed .footer-right {
-  width: 20%;
-  padding-top: 50px;
-}
-
-.footer-distributed .footer-company-about {
+.footer-company-about {
   line-height: 20px;
   color: #ffffff;
   font-size: 13px;
   font-weight: normal;
   margin: 0;
+  padding: 20px;
+  text-align: left;
 }
 
-.footer-distributed .footer-company-about span {
+.footer-company-about span {
   display: block;
   color: #ffffff;
   font-size: 14px;
   font-weight: bold;
-  margin-bottom: 20px;
 }
 
-.footer-distributed .footer-icons {
-  margin-top: 25px;
+.footer-icons {
+  text-align: left;
+  padding: 20px;
 }
 
-.footer-distributed .footer-icons a {
+.footer-icons a {
   display: inline-block;
   width: 35px;
   height: 35px;
   cursor: pointer;
   background-color: #33383b;
   border-radius: 2px;
-
   font-size: 20px;
   color: #ffffff;
   text-align: center;
   line-height: 35px;
-
-  margin-right: 3px;
+  margin-right: 20px;
   margin-bottom: 5px;
 }
-
-/* If you don't want the footer to be responsive, remove these media queries */
-
-@media (max-width: 880px) {
-  .footer-distributed {
-    margin-left: 0;
-    padding-left: 0;
-  }
-  .footer-distributed .footer-left {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-  }
-  .footer-distributed .footer-center {
-    width: 45%;
-    padding-top: 0px;
-  }
-
-  .footer-distributed .footer-right {
-    width: 50%;
-    padding-top: 20px;
-  }
-}
-@media (max-width: 660px) {
-  .footer-distributed .footer-center {
-    width: 100%;
-    display: flex;
+// media query
+@media (max-width: 955px) {
+  .footer-content {
     flex-wrap: wrap;
   }
-  .footer-center__location {
+  .footer-left {
     width: 100%;
+    padding-bottom: 0;
   }
-  .footer-center__phone {
-    width: 100%;
+  .footer-center,
+  .footer-right {
+    width: 45%;
   }
-  .footer-center__mail {
-    width: 100%;
-  }
-  .footer-distributed .footer-right {
-    width: 100%;
-    text-align: center;
-    padding-left: 20px;
-    padding-right: 20px;
+  #footer-copyright {
+    top: 1050px;
   }
 }
-@media (max-width: 360px) {
+@media (max-width: 710px) {
+  .footer-center,
+  .footer-right {
+    width: 100%;
+  }
+  #footer-copyright {
+    top: 1250px;
+  }
+  .footer-icons a {
+    margin-right: 10px;
+  }
 }
+
 .cf:after {
   clear: both;
 }
 #footer-copyright {
   position: absolute;
   left: 0;
-  margin-top: 20px;
+  top: 960px;
   width: 100%;
+  display: block;
   background: #fff;
 }
 #footer-copyright span {
